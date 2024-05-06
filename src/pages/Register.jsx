@@ -57,6 +57,7 @@ const Register = () => {
   };
 
   return (
+
     <>
     <div className={styles.register}>
             <div className={styles.blur}></div>

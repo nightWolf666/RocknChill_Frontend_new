@@ -117,9 +117,20 @@ span.h2 {
 }
 
 
-
-
 .styledinput{
+
+input::before{
+    content: url(../icons/user.png);
+    position: inline-block;
+    width: 30px;
+    height: 38px;
+    vertical-align: middle;
+    color: #D9D9D9;
+}
+
+
+input{
+
     font-size: 14px;
     align-items: center;
     justify-content: space-between;
