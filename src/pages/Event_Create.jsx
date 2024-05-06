@@ -95,8 +95,7 @@ const Event_Create = () => {
     <>
     
     <div className={styles.event_create}>
-    {/* <span><img  className={styles.container} src={Stage} alt="Stage" /></span> */}
-            <div className={styles.blur}></div>
+      <div className={styles.blur}></div>
             <div className={styles.container}>
               <form onSubmit={handleEvent} className={styles.wrapper}>
                 <div className={styles.header}>
