@@ -115,6 +115,22 @@ span.h2 {
     padding: 15px;
 }
 
+.styledbutton {
+    height: 60px;
+    color: var(--white);
+    background-color: var(--seondarybt);
+    border-radius: 5px;
+    border: 1px solid var(--border-gray-dark);
+    font-size: 18px;
+    transition: 0.3s all;
+    width: 370px;
+}
+
+.styledbutton:hover {
+    transition: 0.3s all;
+    background-color: var(--primary);
+}
+
 input::before{
     content: url(../icons/user.png);
     position: inline-block;

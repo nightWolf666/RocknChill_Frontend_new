@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useBackgroundImage } from "../context/BackgroundImageContext.jsx";
 import Background from '../assets/background/Background_Strand.png';
 import "../pages/Profil.css";
@@ -6,13 +7,14 @@ import "../pages/Profil.css";
 const Profil = () => {
   const { setBackgroundImage } = useBackgroundImage();
   const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     setBackgroundImage(Background);
   }, []);
 
   useEffect(() => {
-    fetch('https://pokeapi-be-5p2b.onrender.com/user')
+    fetch(import.meta.env.VITE_SERVER_URL + '/user/2')
       .then(response => response.json())
       .then(data => setUser(data))
       .catch(error => console.error('Error:', error));
@@ -25,7 +27,6 @@ const Profil = () => {
   return (
     <div className="profil-container">
       <h1>RocknChill</h1>
-      <img src={Background} alt="background" />
       <p>Benutzername: {user.user_name}</p>
       <p>Email: {user.email}</p>
       <p>Urlaubstage: {user.urlaubstage}</p>
@@ -36,3 +37,7 @@ const Profil = () => {
 };
 
 export default Profil;
+
+
+
+
