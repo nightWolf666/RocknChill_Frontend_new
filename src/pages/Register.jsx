@@ -4,7 +4,7 @@ import { useFetch } from "../hooks/useFetch.js";
 import LoginButton from '../assets/icons/Logo.png';
 import Background from '../assets/background/Background_Strand.png';
 import Button from "../ui/Button.jsx";
-import styles from "../assets/css/login.module.css";
+import styles from "../assets/css/register.module.css";
 
 const Register = () => {
   const { setBackgroundImage } = useBackgroundImage();
@@ -55,6 +55,7 @@ const Register = () => {
   };
 
   return (
+
     <>
     <div className={styles.login}>
             <div className={styles.blur}></div>
@@ -90,18 +91,7 @@ const Register = () => {
     
     </>
 
-    // <div>
-    //   <h1>RocknChill</h1>      
-    //   <input type="text" placeholder="Benutzername" value={user_name} onChange={(e) => setUserName(e.target.value)} />
-    //   <input type="password" placeholder="Passwort" value={passwort} onChange={(e) => setPasswort(e.target.value)} />
-    //   <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-    //   <input type="number" placeholder="Urlaubstage" value={urlaubstage} onChange={(e) => setUrlaubstage(e.target.value)} />
-    //   <input type="number" placeholder="Budget (optional)" value={budget} onChange={(e) => setBudget(e.target.value)} />
-    //   <input type="text" placeholder="Avatar Link (optional)" value={avatar_link} onChange={(e) => setAvatarLink(e.target.value)} />
-    //   <button onClick={handleRegister}>Registrieren</button>
-    //   {/* <button className="home-button" img={LoginButton} url="/login">Du hast bereits einen Account?</button> */}
-    //   <Button text="Du hast bereits einen Account?" className="login-button" url="/login" />
-    // </div>
+    
   );
 };
 
