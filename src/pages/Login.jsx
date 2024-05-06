@@ -6,7 +6,7 @@ import Button from "../ui/Button.jsx";
 import HomeButton from '../assets/icons/Logo.png';
 import Background from '../assets/background/Background_Strand.png';
 import styles from "../assets/css/login.module.css";
-
+import stage from "../assets/elements/Bühne_final.png";
 
 
 const Login = () => {
@@ -33,16 +33,27 @@ const Login = () => {
             <div className={styles.container}>
               <div className={styles.wrapper}>
                 <div className={styles.header}>
-                  <div className={styles.line}></div>
                   <span className={styles.h1}>Login</span>
                   <div>
                     <span className={styles.h2}> Bitte log dich mit deinen Account ein
-                    <input type="text" className="styledinput" />
+                    <input type="text" className={styles.styledinput} />
                     <br />
-                    <input type="text" className="styledinput" />
+                    <input type="text" className={styles.styledinput} />
+                    <br />
+                    <button className={styles.styledbutton}>Login</button>
+                    <br />
+                    <br />
+                    <div className={styles.line}></div>
+                    <br />
+                    <div className={styles.bereitsreg}>
+                      <span className={styles.first}>Du hast noch keinen Account?</span>
+                      <a href="http://localhost:5173/register">
+                        <span className={styles.reg}>Registrieren</span>
+                      </a>
+                    </div>
                   </span>
                   </div>
-                </div>
+                  </div>
               </div>
             </div>
         </div>
