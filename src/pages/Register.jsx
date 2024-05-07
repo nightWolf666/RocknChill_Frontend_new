@@ -8,7 +8,7 @@ import styles from "../assets/css/register.module.css";
 
 const Register = () => {
   const { setBackgroundImage } = useBackgroundImage();
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState(null);
   const [user_name, setUserName] = useState("");
   const [passwort, setPasswort] = useState("");
   const [email, setEmail] = useState("");
@@ -16,19 +16,20 @@ const Register = () => {
   const [budget, setBudget] = useState("");
   const [avatar_link, setAvatarLink] = useState("");
 
-  const [error, backendFetchResult] = useFetch('https://pokeapi-be-5p2b.onrender.com/user');
+  // const [error, backendFetchResult] = useFetch(import.meta.env.VITE_SERVER_URL + '/user');
 
   useEffect(() => {
     setBackgroundImage(Background);
   }, []);
 
-  useEffect(() => {
-    if (backendFetchResult?.length > 0) {
-      setUser(backendFetchResult);
-    }
-  }, [backendFetchResult]);
+  // useEffect(() => {
+  //   if (backendFetchResult?.length > 0) {
+  //     setUser(backendFetchResult);
+  //   }
+  // }, [backendFetchResult]);
 
-  const handleRegister = () => {
+  const handleRegister = (e) => {
+    e.preventDefault();
     const userData = {
       user_name,
       passwort,
@@ -38,7 +39,7 @@ const Register = () => {
       avatar_link
     };
 
-    fetch('https://pokeapi-be-5p2b.onrender.com/user', {
+    fetch(import.meta.env.VITE_SERVER_URL + '/user', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -47,6 +48,7 @@ const Register = () => {
     })
     .then(response => response.json())
     .then(data => {
+
       console.log('Server response:', data);
     })
     .catch((error) => {
@@ -57,10 +59,10 @@ const Register = () => {
   return (
 
     <>
-    <div className={styles.login}>
+    <div className={styles.register}>
             <div className={styles.blur}></div>
             <div className={styles.container}>
-              <div className={styles.wrapper}>
+              <form onSubmit={handleRegister} className={styles.wrapper}>
                 <div className={styles.header}>
                   <div className={styles.line}></div>
                   <span className={styles.h1}>Register</span>
@@ -78,14 +80,11 @@ const Register = () => {
                     <br />
                     <input type="text" className="styledinput" placeholder="Avatar Link (optional)" value={avatar_link} onChange={(e) => setAvatarLink(e.target.value)} />
                     <br />
-                    <button onClick={handleRegister}>Registrieren</button>
-                    <div>
-                      <Button text="Du hast bereits einen Account?" className="login-button" url="/login" />
-                    </div>
-                  </span>
+                    <button className={styles.styledbutton} >Registrieren</button>
+                    </span>
                   </div>
                 </div>
-              </div>
+              </form>
             </div>
         </div>
     

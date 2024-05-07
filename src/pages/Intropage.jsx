@@ -17,7 +17,7 @@ return (
   <div className="intropage">
     <img src={Logo} alt="Background" />
     <div>
-      <Button className="login-button" img={LoginButton} url="/register"/>
+      <Button className="login-button" img={LoginButton} url="/login"/>
       </div>
   </div>
 );
