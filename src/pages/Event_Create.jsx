@@ -55,8 +55,8 @@ const Event_Create = () => {
   //     genre
   //   };
 
-    const handleEvent = (e) => {
-      e.preventDefault();
+    const handleEvent = () => {
+      
       console.log(user);
       
       
@@ -98,7 +98,7 @@ const Event_Create = () => {
     {/* <span><img  className={styles.container} src={Stage} alt="Stage" /></span> */}
             <div className={styles.blur}></div>
             <div className={styles.container}>
-              <form onSubmit={handleEvent} className={styles.wrapper}>
+              <form  className={styles.wrapper}>
                 <div className={styles.header}>
                   <div className={styles.line}></div>
                   <span className={styles.h1}>Nächste Veranstaltung</span>
@@ -134,7 +134,7 @@ const Event_Create = () => {
                     minDate={startDate}
                   />
                   <br />
-                  <button className={styles.styledbutton} >Eintragen</button>
+                  <Button handleEvent={handleEvent} text="Eintragen" url="/dashboard"/>
                 </div>
               </form>
             </div>
