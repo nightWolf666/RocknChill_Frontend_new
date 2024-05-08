@@ -58,7 +58,7 @@ const Event_Create = () => {
   const e = null;
 
     const handleEvent = (e) => {
-      // e.preventDefault();
+      e.preventDefault();
       console.log(user);
       
       
@@ -137,6 +137,7 @@ const Event_Create = () => {
                   />
                   <br />
                   <Button type="submit" handleEvent={handleEvent} text="Eintragen" url="/dashboard"/>
+                  <Button type="button" text="Dashboard" url="/dashboard"/>
                 </div>
               </form>
             </div>
