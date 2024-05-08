@@ -55,7 +55,7 @@ const Event_Create = () => {
   //     genre
   //   };
 
-  const e = null;
+
 
     const handleEvent = (e) => {
       e.preventDefault();
