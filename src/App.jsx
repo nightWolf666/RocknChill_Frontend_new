@@ -8,6 +8,7 @@ import Event_Create from "./pages/Event_Create.jsx";
 import Event_Detail from "./pages/Event_Detail.jsx";
 import { useFetch } from "./hooks/useFetch.js";
 import Dashboard from "./pages/Dashboard.jsx";
+import Profil_Edit from "./pages/Profil_Edit.jsx";
 
 function App() {
 
@@ -28,7 +29,7 @@ function App() {
               <Route path="/event_create" element={<Event_Create />} />
               <Route path="/event_detail" element={<Event_Detail />} />
               <Route path="/profil" element={<Profil />} />
-              
+              <Route path="/profil_edit" element={<Profil_Edit />} />
             </>
           )}
           <Route path="*" element={<h1>Not found!</h1>} />

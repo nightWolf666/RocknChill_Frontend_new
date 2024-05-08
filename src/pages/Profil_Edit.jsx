@@ -64,9 +64,9 @@ const Profil_Edit = () => {
               <form onSubmit={handleProfil_Edit} className={styles.wrapper}>
                 <div className={styles.header}>
                   <div className={styles.line}></div>
-                  <span className={styles.h1}>Register</span>
+                  <span className={styles.h1}>Änderungen Profildaten</span>
                   <div>
-                    <span className={styles.h2}> Änderungen Profildaten
+                    <span className={styles.h2}> hier kannst Du Deine Profildaten ändern
                     <input type="text" className="styledinput" placeholder="Benutzername" value={user_name} onChange={(e) => setUserName(e.target.value)} />
                     <br />
                     <input type="password" className="styledinput" placeholder="Passwort" value={passwort} onChange={(e) => setPasswort(e.target.value)} />
