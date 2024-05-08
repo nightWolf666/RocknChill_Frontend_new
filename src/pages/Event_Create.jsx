@@ -55,8 +55,10 @@ const Event_Create = () => {
   //     genre
   //   };
 
-    const handleEvent = () => {
-      
+  const e = null;
+
+    const handleEvent = (e) => {
+      e.preventDefault();
       console.log(user);
       
       
@@ -134,7 +136,8 @@ const Event_Create = () => {
                     minDate={startDate}
                   />
                   <br />
-                  <Button handleEvent={handleEvent} text="Eintragen" url="/dashboard"/>
+                  <Button type="submit" handleEvent={handleEvent} text="Eintragen" url="/dashboard"/>
+                  <Button type="button" text="Dashboard" url="/dashboard"/>
                 </div>
               </form>
             </div>

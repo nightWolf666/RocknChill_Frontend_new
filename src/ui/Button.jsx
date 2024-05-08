@@ -3,9 +3,10 @@ import styles from "../assets/css/event_create.module.css";
 
 const Button = (props) => {
   const {url, img, text,type,} = props
+  
   return (
     <Link to={url}>
-      <button onClick={()=>props.handleEvent()} type={type} className={styles.styledbutton} >
+      <button onClick={props.handleEvent} type={type} className={styles.styledbutton} >
         <img src={img} border="0"/>
         {text}
       </button>
