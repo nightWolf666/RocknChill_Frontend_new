@@ -175,3 +175,10 @@ input{
     padding-left: 50px;
 
 }
+.buehne{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 15px;
+    height: 15px;
+}
