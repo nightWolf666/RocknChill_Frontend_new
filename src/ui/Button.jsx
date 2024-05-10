@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styles from "../assets/css/event_create.module.css";
 
 const Button = (props) => {
-  const {url, img, text,type,} = props
+  const {url, img, text,type} = props
   
   return (
     <Link to={url}>
@@ -13,6 +13,5 @@ const Button = (props) => {
     </Link>
   )
 }
-
 
 export default Button; 
