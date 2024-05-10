@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useBackgroundImage } from "../context/BackgroundImageContext.jsx";
 import Background from '../assets/background/Background_Strand.png';
-import "../pages/Profil.css";
+// import "../pages/Profil.css";
 
 const Profil = () => {
   const { setBackgroundImage } = useBackgroundImage();
