@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useBackgroundImage } from "../context/BackgroundImageContext.jsx";
 import { useFetch } from "../hooks/useFetch.js";
-import HomeButton from '../assets/icons/Logo.png';
+import Logo from '../assets/icons/Logo.png';
 import Background from '../assets/background/Background_Strand.png';
 import Button from "../ui/Button.jsx";
 import styles from "../assets/css/register.module.css";
@@ -17,6 +18,7 @@ const Register = () => {
   const [urlaubstage, setUrlaubstage] = useState("");
   const [budget, setBudget] = useState("");
   const [avatar_link, setAvatarLink] = useState("");
+  const navigate = useNavigate();
 
   // const [error, backendFetchResult] = useFetch(import.meta.env.VITE_SERVER_URL + '/user');
 
@@ -50,7 +52,7 @@ const Register = () => {
     })
     .then(response => response.json())
     .then(data => {
-
+      navigate("/dashboard");
       console.log('Server response:', data);
     })
     .catch((error) => {
@@ -61,11 +63,11 @@ const Register = () => {
   return (
 
     <>
-    <div className={styles.login}>
+    <div className={styles.register}>
         <div className={styles.container}>
-        <form onSubmit={handleRegister} className={styles.wrapper}>
+        <form className={styles.wrapper}>
             <div className={styles.header}>
-              <img src={HomeButton} alt="" />
+              <img src={Logo} alt="" />
               <div>
                 <img src={stage} alt="" />
               </div>
@@ -81,11 +83,7 @@ const Register = () => {
               </div>
               {/* <button className={styles.styledbutton} onClick={handleRegister}>Register</button> */}
               <div>
-                <Button
-                url="/dashboard"
-                type="button"
-                text="Register"
-                />
+                <Button type="submit" handleEvent={handleRegister} text="Register" url="/dashboard"/>
               </div>
               
               

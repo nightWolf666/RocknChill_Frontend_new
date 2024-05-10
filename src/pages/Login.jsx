@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useBackgroundImage } from "../context/BackgroundImageContext.jsx";
 import { useFetch } from "../hooks/useFetch.js";
 import Button from "../ui/Button.jsx";
-import HomeButton from '../assets/icons/Logo.png';
+import Logo from '../assets/icons/Logo.png';
 import Background from '../assets/background/Background_Strand.png';
 import styles from "../assets/css/login.module.css";
 import stage from "../assets/elements/Bühne_final.png";
@@ -44,7 +44,7 @@ const Login = () => {
         <div className={styles.container}>
         <form onSubmit={handleLogin} className={styles.wrapper}>
             <div className={styles.header}>
-              <img src={HomeButton} alt="" />
+              <img src={Logo} alt="" />
               <div>
                 <img src={stage} alt="" />
               </div>
@@ -103,12 +103,10 @@ const Login = () => {
               </form>
             </div>
         </div> */}
-    <div>
-      <Button className="home-button" url="/dashboard" text="Login"/>
-    </div>
+    
   </>
-  )
-}
+  );
+};
 
 export default Login;
 

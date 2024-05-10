@@ -57,7 +57,7 @@ span.h2 {
 .wrapper {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    /* gap: 40px; */
 }
 
 

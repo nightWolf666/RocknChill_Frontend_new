@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useBackgroundImage } from "../context/BackgroundImageContext.jsx";
 import { useFetch } from "../hooks/useFetch.js";
 import Background from '../assets/background/Background_Strand.png';
 import Button from "../ui/Button.jsx";
 import styles from "../assets/css/event_create.module.css";
 import Stage from "../assets/elements/Bühne_final.png";
+
 
 
 import DatePicker from "react-datepicker";
@@ -18,6 +20,7 @@ const Event_Create = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [event_genre, setEvent_genre] = useState("");
+  const navigate = useNavigate();
   
   
   useEffect(() => {
@@ -84,7 +87,7 @@ const Event_Create = () => {
         })
         .then(response => response.json())
         .then(data => {
-
+          navigate("/dashboard");
           console.log('Server response:', data);
         })
         .catch((error) => {
@@ -137,8 +140,7 @@ const Event_Create = () => {
                   />
                   <br />
                   <Button type="submit" handleEvent={handleEvent} text="Eintragen" url="/dashboard"/>
-                  <Button type="button" text="Dashboard" url="/dashboard"/>
-                </div>
+                  </div>
               </form>
             </div>
         </div>
