@@ -9,10 +9,6 @@ import styles from "../assets/css/login.module.css";
 import stage from "../assets/elements/Bühne_final.png";
 
 
-
-
-
-
 const Login = () => {
 
   const { setBackgroundImage } = useBackgroundImage();
