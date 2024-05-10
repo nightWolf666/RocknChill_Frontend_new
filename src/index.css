@@ -1,8 +1,4 @@
-
-
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
 
 * {
     box-sizing: border-box;
@@ -12,7 +8,7 @@
 }
 
 :root {
-    --primary: #3890ff;
+    --primary: #9D099D;
     --gray-text: #919191;
     --secondary: #202020d7;
     --seondarybt:#49494988;
@@ -40,7 +36,7 @@
     --backdrop: blur(20px);
     --text-shadow-white: rgba(255, 255, 255, 0.582) 0 0 20px;
     --text-shadow-primary-bright: rgba(101, 181, 255, 0.295) 0 0 33px;
-    --text-shadow-primary: #3892ffa1 0 0 20px;
+    --text-shadow-primary: #9D099D 0 0 20px;
 
 }
 
@@ -54,3 +50,4 @@ body {
     height: 0.1rem;
     border-radius: 0.25rem;
 }
+

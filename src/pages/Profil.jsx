@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import React, { useEffect, useState } from "react";
 import { useBackgroundImage } from "../context/BackgroundImageContext.jsx";
 import Background from '../assets/background/Background_Strand.png';
 import "../pages/Profil.css";
 
+
 const Profil = () => {
   const { setBackgroundImage } = useBackgroundImage();
-  const [user, setUser] = useState(null);
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -24,7 +23,16 @@ const Profil = () => {
     return <div>Loading...</div>;
   }
 
+  
+
+
+
+
   return (
+<>
+
+
+
     <div className="profil-container">
       <h1>RocknChill</h1>
       <p>Benutzername: {user.user_name}</p>
@@ -33,6 +41,7 @@ const Profil = () => {
       <p>Budget: {user.budget}</p>
       <p>Avatar Link: {user.avatar_link}</p>
     </div>
+    </>
   );
 };
 

@@ -9,7 +9,6 @@ import styles from "../assets/css/login.module.css";
 import stage from "../assets/elements/Bühne_final.png";
 
 
-import stage from "../assets/elements/Bühne_final.png";
 
 
 
@@ -45,7 +44,41 @@ const Login = () => {
 
   return (
     <>
-          <div className={styles.login}>
+    <div className={styles.login}>
+        <div className={styles.container}>
+        <form onSubmit={handleLogin} className={styles.wrapper}>
+            <div className={styles.header}>
+              <img src={HomeButton} alt="" />
+              <div>
+                <img src={stage} alt="" />
+              </div>
+            </div>
+            <div className={styles.main}>
+              <div className={styles.inputs}>
+                <input type="text" placeholder="Benutzername" className={styles.styledinput} />
+                <input type="password" placeholder="Passwort" className={styles.styledinput} />
+              </div>
+              <div>
+                <Button
+                url="/dashboard"
+                type="button"
+                text="Login"
+                />
+              </div>
+              <div className={styles.line}></div>
+              <div className={styles.bereitsreg}>
+                <span className={styles.first}>Du hast noch keinen Account?</span>
+                <a href="/register">
+                  <span className={styles.reg}>Registrieren</span>
+                </a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+          {/* <div className={styles.login}>
             <div className={styles.blur}></div>
             <div className={styles.container}>
               <form onSubmit={handleLogin} className={styles.wrapper}>
@@ -73,9 +106,9 @@ const Login = () => {
                   </div>
               </form>
             </div>
-        </div>
+        </div> */}
     <div>
-      <Button className="home-button" img={HomeButton} url="/dashboard"/>
+      <Button className="home-button" url="/dashboard" text="Login"/>
     </div>
   </>
   )
