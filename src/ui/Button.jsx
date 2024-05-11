@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from "../assets/css/event_create.module.css";
+import styles from "../assets/css/login.module.css";
 
 const Button = (props) => {
   const {url, img, text} = props

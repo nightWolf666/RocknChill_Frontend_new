@@ -74,7 +74,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 100%;
+    width: 400px;
 }
 
 
@@ -133,7 +133,7 @@
 
 .inputs input {
     font-size: 20px;
-    width: 100%;
+    width: 400px;
     display: flex;
     height: 66px;
     background-color: var(--seondarybt);

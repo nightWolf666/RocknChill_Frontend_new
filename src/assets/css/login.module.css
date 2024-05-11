@@ -80,7 +80,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 100%;
+    width: 400px;
 }
 
 
@@ -118,7 +118,7 @@
     font-size: 14px;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: 377px;
     display: flex;
     height: 65px;
     background-color: var(--seondarybt);
@@ -134,7 +134,7 @@
 
 .inputs input {
     font-size: 20px;
-    width: 100%;
+    width: 400px;
     display: flex;
     height: 66px;
     background-color: var(--seondarybt);
@@ -150,14 +150,18 @@
 }
 
 .styledbutton {
-    height: 60px;
+    height: 66px;
     color: var(--white);
     background-color: var(--seondarybt);
     border-radius: 5px;
     border: 1px solid var(--border-gray-dark);
     font-size: 18px;
     transition: 0.3s all;
-    width: 100%;
+    width: 400px;
+}
+
+.styledbutton:hover {
+    transition: 0.3s all;
     background-color: var(--primary);
 }
 
