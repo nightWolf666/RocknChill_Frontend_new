@@ -29,10 +29,10 @@ function Dashboard() {
 
   return (
     <>
-      <div className={styles.login}>
-        <div className={styles.container}>
-          <div className={styles.wrapper}>
-            <div className={styles.header}>
+      <div className={styles.dasboard}>
+        <div className={styles.dasboard_container}>
+          <div className={styles.dasboard_wrapper}>
+            <div className={styles.dasboard_header}>
               <img src={HomeButton} alt="" />
               <div>
                 <img src={stage} alt="" />
@@ -43,11 +43,11 @@ function Dashboard() {
                 <h2>Ort</h2>
               </div>
             </div>
-            <div className={styles.addEvent}>
+            <div className={styles.dasboard_addEvent}>
               <Button url="/event_create" text="Hinzufügen" />
             </div>
             
-            <div className={styles.main}>
+            <div className={styles.dasboard_main}>
                 <div className={styles.line}></div>
               <ul>
                 <li>
@@ -71,11 +71,11 @@ function Dashboard() {
               </ul>
             </div>
             <div>
-              <div className={styles.UserStatus}>
+              <div className={styles.dasboard_UserStatus}>
                 <h1>Übrige Urlaubstage</h1>
                 <p>Test</p>
               </div>
-              <div className={styles.UserStatus}>
+              <div className={styles.dasboard_UserStatus}>
                 <h1>Budget</h1>
                 <p>Test</p>
               </div>

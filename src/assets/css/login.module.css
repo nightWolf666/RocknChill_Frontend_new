@@ -56,7 +56,6 @@
 
 .header div img {
     width: 100%;
-    height: 314px;
 }
 
 
@@ -160,6 +159,11 @@
     font-size: 18px;
     transition: 0.3s all;
     width: 100%;
+    background-color: var(--primary);
+}
+
+.styledbutton:hover {
+    transition: 0.3s all;
     background-color: var(--primary);
 }
 

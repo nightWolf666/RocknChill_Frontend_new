@@ -1,4 +1,4 @@
-.login {
+.dasboard {
     font-family: poppins;
     overflow: hidden !important;
     align-items: center;
@@ -13,7 +13,7 @@
 }
 
 
-.container {
+.dasboard_container {
     position: relative;
     border-radius: 10px;
     border: solid 1px var(--border-bg-dark);
@@ -26,7 +26,7 @@
 
 
 
-.main {
+.dasboard_main {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -36,7 +36,7 @@
     padding: 20px;
 }
 
-.header {
+.dasboard_header {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,19 +44,19 @@
     gap: 15px;
 }
 
-.header img {
+/* .header img {
     max-width: 100%;
     width: 100%;
     align-self: center;
-}
+} */
 
 
-.header div img {
+.dasboard_header div img {
     width: 100%;
     height: 314px;
 }
 
-.header div h2 {
+.dasboard_header div h2 {
     font-size: 24px;
     color: var(--primary);
     font-size: 24px;
@@ -70,14 +70,14 @@
     text-shadow: var(--text-shadow-primary-bright);
 } 
 
-.wrapper {
+.dasboard_wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.inputs {
+.dasboard_inputs {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -86,7 +86,7 @@
     width: 100%;
 }
 
-.UserStatus h1{
+.dasboard_UserStatus h1{
     font-size: 25px;
     color: var(--primary);
     display: flex;
@@ -95,7 +95,7 @@
     text-shadow: var(--text-shadow-primary);
 }
 
-.UserStatus p{
+.dasboard_UserStatus p{
     font-size: 18px;
     display: flex;
     text-align: center;
@@ -104,7 +104,7 @@
 
 
 
-.text {
+.dasboard_text {
     position: absolute;
     color: var(--primary);
     top: 50%;
@@ -142,7 +142,7 @@
     border-radius: 0.25rem;
 }
 
-.button {
+.dasboard_button {
     font-size: 14px;
     align-items: center;
     justify-content: space-between;
@@ -158,7 +158,7 @@
 }
 
 
-.inputs input {
+.dasboard_inputs input {
     font-size: 20px;
     width: 100%;
     display: flex;
@@ -175,7 +175,7 @@
 
 
 
-.styledbutton {
+.dasboard_styledbutton {
     height: 60px;
     color: var(--white);
     background-color: var(--seondarybt);
@@ -191,7 +191,7 @@
 }
 
 
-.inputs li {
+.dasboard_inputs li {
     font-size: 24px;
     display: flex;
     justify-content: flex-start;
@@ -213,7 +213,7 @@
     text-shadow: var(--text-shadow-primary-bright);
 }
 
-.addEvent {
+.dasboard_addEvent {
     position: absolute;
     top: 0;
     right: 0;
@@ -261,7 +261,7 @@ li div {
     margin: 6px;
 }
 
-.UserStatus {
+.dasboard_UserStatus {
     display: inline-flex;
     flex-direction: column;
     font-size: 24px;

@@ -9,16 +9,11 @@ export function useFetch(url) {
     async function fetchData(url) {
       try {
         const res = await fetch(url);
-        // console.log("res",res)
         if (!res.ok) throw new Error("Request failed");
         const data = await res.json();
-     
-              
-        // console.log("data",data)
-              
         setData(data);
       } catch (error) {
-        console.log("error",error);
+        console.log(error);
         setError(error);
       }
     }

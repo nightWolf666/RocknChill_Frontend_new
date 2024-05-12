@@ -12,7 +12,7 @@ import stage from "../assets/elements/Bühne_final.png";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-const Event_Create = () => {
+const Event_Edit = () => {
   const { setBackgroundImage } = useBackgroundImage();
   const [user, setUser] = useState([]);
   const [event_name, setEvent_name] = useState("");
@@ -80,7 +80,7 @@ const Event_Create = () => {
 
       
         fetch(import.meta.env.VITE_SERVER_URL + '/event', {
-          method: "POST",
+          method: "PUT",
           headers: {
             "Content-Type": "application/json"
           },
@@ -132,7 +132,7 @@ const Event_Create = () => {
                     minDate={startDate}
                   />
                   <div className={styles.line}></div>
-                  <Button type="submit" handleEvent={handleEvent} text="Event Eintragen" url="/dashboard"/>
+                  <Button type="submit" handleEvent={handleEvent} text="Event ändern" url="/dashboard"/>
                   </div>
                  </div> 
               </form>
@@ -151,4 +151,4 @@ const Event_Create = () => {
 
 
 
-export default Event_Create;
+export default Event_Edit;
