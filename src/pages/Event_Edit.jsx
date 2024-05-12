@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useParams} from "react-router-dom";
 import { useBackgroundImage } from "../context/BackgroundImageContext.jsx";
 import { useFetch } from "../hooks/useFetch.js";
 import Logo from '../assets/icons/Logo.png';
@@ -15,6 +15,8 @@ import "react-datepicker/dist/react-datepicker.css";
 const Event_Edit = () => {
   const { setBackgroundImage } = useBackgroundImage();
   const [user, setUser] = useState([]);
+  const [event, setEvent] = useState("");
+  const [currentEvent, setCurrentEvent] = useState("");
   const [event_name, setEvent_name] = useState("");
   const [event_ort, setEvent_ort] = useState("");
   const [event_beschreibung_kurz, setEvent_beschreibung_kurz] = useState("");
@@ -23,13 +25,21 @@ const Event_Edit = () => {
   const [event_genre, setEvent_genre] = useState("");
   const navigate = useNavigate();
   
-  
+  const { id } = useParams();
+
   useEffect(() => {
-    fetch(import.meta.env.VITE_SERVER_URL + '/user/2')
-      .then(response => response.json())
-      .then(data => setUser(data[0]))
-      .catch(error => console.error('Error:', error));
-  }, []);
+    console.log('Event', event);
+    console.log('CurrentEvent', currentEvent);
+
+}); 
+
+useEffect(() => {
+  fetch(import.meta.env.VITE_SERVER_URL + '/event/' + id)
+    .then(response => response.json())
+    .then((data) => {setCurrentEvent(data[0]);
+                     setEvent(data[0])})
+    .catch(error => console.error('Error:', error));
+}, []);
 
  
 
@@ -63,8 +73,7 @@ const Event_Edit = () => {
 
     const handleEvent = (e) => {
       e.preventDefault();
-      console.log(user);
-      
+      console.log(user);     
       
 
       const user_id = user.user_id;
@@ -78,24 +87,27 @@ const Event_Edit = () => {
         user_id
       };
 
+      updateForm();
+    };
       
-        fetch(import.meta.env.VITE_SERVER_URL + '/event', {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(eventData)
-        })
-        .then(response => response.json())
-        .then(data => {
-          navigate("/dashboard");
-          console.log('Server response:', data);
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-        });
-      
-      };
+    function updateForm(){
+      fetch(import.meta.env.VITE_SERVER_URL + '/event/' + id, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(currentEvent)
+      })
+      .then(response => response.json())
+      .then(data => {
+        setUser(data.event);
+        navigate("/dashboard");
+        console.log('Server response:', data);
+      }) 
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }
 
   return (
     <>
@@ -111,10 +123,10 @@ const Event_Edit = () => {
             </div>
             <div className={styles.event_create_main}>
               <div className={styles.event_create_inputs}>
-                    <input type="text" className={styles.styledinput} placeholder="Veranstaltung" value={event_name} onChange={(e) => setEvent_name(e.target.value)} />
-                    <input type="text" className={styles.styledinput} placeholder="Ort" value={event_ort} onChange={(e) => setEvent_ort(e.target.value)} />
-                    <input type="text" className={styles.styledinput} placeholder="Info" value={event_beschreibung_kurz} onChange={(e) => setEvent_beschreibung_kurz(e.target.value)} />
-                    <input type="text" className={styles.styledinput} placeholder="Genre" value={event_genre} onChange={(e) => setEvent_genre(e.target.value)} />
+                    <input type="text" className={styles.styledinput} placeholder="Veranstaltung" value={currentEvent.event_name} onChange={(e) => setCurrentEvent({ ...currentEvent, event_name: e.target.value})} />
+                    <input type="text" className={styles.styledinput} placeholder="Ort" value={currentEvent.event_ort} onChange={(e) => setCurrentEvent({ ...currentEvent, event_ort: e.target.value})} />
+                    <input type="text" className={styles.styledinput} placeholder="Info" value={currentEvent.event_beschreibung_kurz} onChange={(e) => setCurrentEvent({ ...currentEvent, event_beschreibung_kurz: e.target.value})} />
+                    <input type="text" className={styles.styledinput} placeholder="Genre" value={currentEvent.event_genre} onChange={(e) => setCurrentEvent({ ...currentEvent, event_genre: e.target.value})} />
                     
                   <DatePicker
                     selected={startDate}

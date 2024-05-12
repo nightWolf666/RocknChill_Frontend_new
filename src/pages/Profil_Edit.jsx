@@ -24,18 +24,40 @@ const Profil_Edit = () => {
   const { id } = useParams();
 
   useEffect(() => {
+      console.log('User', user);
+      console.log('CurrentUser', currentUser);
+
+  }); 
+
+  useEffect(() => {
     fetch(import.meta.env.VITE_SERVER_URL + '/user/' + id)
       .then(response => response.json())
-      .then(data => setCurrentuser(data[0]))
+      .then((data) => {setCurrentuser(data[0]);
+                       setUser(data[0])})
       .catch(error => console.error('Error:', error));
   }, []);
 
-  useEffect(() => {
+  useEffect(() => { 
     setBackgroundImage(Background);
   }, []);
 
-  
+  // const updateUser = () => {
+  //   useEffect(() => {
+  //   setUserName(currentUser.user_name);
+  //   console.log(user_name);
+  //   setPasswort(currentUser.passwort);
+  //   setEmail(currentUser.email);
+  //   setUrlaubstage(currentUser.urlaubstage);
+  //   setBudget(currentUser.budget);
+  //   setAvatarLink(currentUser.avatar_link);
+  // }, []);
 
+
+// useEffect(() => {
+//     updateUser();
+// }, []);
+
+  
 
 
   const handleProfile_Edit = (e) => {
@@ -49,22 +71,61 @@ const Profil_Edit = () => {
       avatar_link
     };
 
-    fetch(import.meta.env.VITE_SERVER_URL + '/user/' + id, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(userData)
-    })
-    .then(response => response.json())
-    .then(data => {
-      navigate("/dashboard");
-      console.log('Server response:', data);
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
+    updateForm();
+
+    // fetch(import.meta.env.VITE_SERVER_URL + '/user/' + id, {
+    //   method: "PUT",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify(userData)
+    // })
+    // .then(response => response.json())
+    // .then(data => {
+    //   navigate("/dashboard");
+    //   console.log('Server response:', data);
+    // })
+    // .catch((error) => {
+    //   console.error('Error:', error);
+    // });
   };
+
+  // function updateForm(){
+  //   fetch(import.meta.env.VITE_SERVER_URL + '/user/' + id, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify(currentUser)
+  //   })
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     setUser(data.user);
+  //     console.log('Server response:', data);
+  //   }) 
+  //   .catch((error) => {
+  //     console.error('Error:', error);
+  //   });
+
+
+    function updateForm(){
+      fetch(import.meta.env.VITE_SERVER_URL + '/user/' + id, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(currentUser)
+      })
+      .then(response => response.json())
+      .then(data => {
+        setUser(data.user);
+        navigate("/dashboard");
+        console.log('Server response:', data);
+      }) 
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }
 
   return (
 
@@ -80,17 +141,17 @@ const Profil_Edit = () => {
             </div>
             <div className={styles.register_main}>
               <div className={styles.register_inputs}>
-                 <input type="text" placeholder="Benutzername" className={styles.styledinput} value={currentUser.user_name} onChange={(e) => setUserName(e.target.value)}  />
-                <input type="password" placeholder="Passwort" className={styles.styledinput} value={currentUser.passwort} onChange={(e) => setPasswort(e.target.value)}  />
-                <input type="email" placeholder="Email" className={styles.styledinput} value={currentUser.email} onChange={(e) => setEmail(e.target.value)} />
-                <input type="number" placeholder="Urlaubstage" className={styles.styledinput} value={currentUser.urlaubstage} onChange={(e) => setUrlaubstage(e.target.value)} />
-                <input type="number" placeholder="Budget (optional)" className={styles.styledinput} value={currentUser.budget} onChange={(e) => setBudget(e.target.value)} />
-                <input type="text" placeholder="Avatar Link (optional)" className={styles.styledinput} value={currentUser.avatar_link} onChange={(e) => setAvatarLink(e.target.value)} />
+                <input type="text" placeholder="Benutzername" className={styles.styledinput} value={currentUser.user_name} onChange={(e) => setCurrentuser({ ...currentUser, user_name: e.target.value})} />
+                <input type="password" placeholder="Passwort" className={styles.styledinput} value={currentUser.passwort} onChange={(e) => setCurrentuser({ ...currentUser, passwort: e.target.value})} />
+                <input type="email" placeholder="Email" className={styles.styledinput} value={currentUser.email} onChange={(e) => setCurrentuser({ ...currentUser, email: e.target.value})} />
+                <input type="number" placeholder="Urlaubstage" className={styles.styledinput} value={currentUser.urlaubstage} onChange={(e) => setCurrentuser({ ...currentUser, urlaubstage: e.target.value})} />
+                <input type="number" placeholder="Budget (optional)" className={styles.styledinput} value={currentUser.budget} onChange={(e) => setCurrentuser({ ...currentUser, budget: e.target.value})} />
+                <input type="text" placeholder="Avatar Link (optional)" className={styles.styledinput} value={currentUser.avatar_link} onChange={(e) => setCurrentuser({ ...currentUser, avatar_link: e.target.value})} />
               </div>
               {/* <button className={styles.styledbutton} onClick={handleRegister}>Register</button> */}
               <div className={styles.line}></div>
               <div>
-                <Button type="submit" handleEvent={handleProfile_Edit} text="Änderungen speichern" url="/dashboard"/>
+                <Button type="submit"  handleEvent={handleProfile_Edit} text="Änderungen speichern" url="/dashboard"/>
               </div>
               
               
