@@ -128,7 +128,7 @@ useEffect(() => {
                     <input type="text" className={styles.styledinput} placeholder="Info" value={currentEvent.event_beschreibung_kurz} onChange={(e) => setCurrentEvent({ ...currentEvent, event_beschreibung_kurz: e.target.value})} />
                     <input type="text" className={styles.styledinput} placeholder="Genre" value={currentEvent.event_genre} onChange={(e) => setCurrentEvent({ ...currentEvent, event_genre: e.target.value})} />
                     
-                  <DatePicker
+                    {/* <DatePicker
                     selected={startDate}
                     onChange={(date) => setStartDate(date)}
                     selectsStart
@@ -142,7 +142,7 @@ useEffect(() => {
                     startDate={startDate}
                     endDate={endDate}
                     minDate={startDate}
-                  />
+                  /> */}
                   <div className={styles.line}></div>
                   <Button type="submit" handleEvent={handleEvent} text="Event ändern" url="/dashboard"/>
                   </div>
