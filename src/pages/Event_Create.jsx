@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useParams} from "react-router-dom";
 import { useBackgroundImage } from "../context/BackgroundImageContext.jsx";
 import { useFetch } from "../hooks/useFetch.js";
 import Logo from '../assets/icons/Logo.png';
@@ -22,10 +22,12 @@ const Event_Create = () => {
   const [endDate, setEndDate] = useState(new Date());
   const [event_genre, setEvent_genre] = useState("");
   const navigate = useNavigate();
+
+  const { id } = useParams();
   
   
   useEffect(() => {
-    fetch(import.meta.env.VITE_SERVER_URL + '/user/2')
+    fetch(import.meta.env.VITE_SERVER_URL + '/user/' + id)
       .then(response => response.json())
       .then(data => setUser(data[0]))
       .catch(error => console.error('Error:', error));
@@ -88,7 +90,7 @@ const Event_Create = () => {
         })
         .then(response => response.json())
         .then(data => {
-          navigate("/dashboard");
+          navigate("/dashboard/user/" + data[0].user_id);
           console.log('Server response:', data);
         })
         .catch((error) => {

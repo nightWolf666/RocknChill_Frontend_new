@@ -18,6 +18,7 @@ const Register = () => {
   const [urlaubstage, setUrlaubstage] = useState("");
   const [budget, setBudget] = useState("");
   const [avatar_link, setAvatarLink] = useState("");
+  const [newUser, setNewUser] = useState([]);
   const navigate = useNavigate();
 
   // const [error, backendFetchResult] = useFetch(import.meta.env.VITE_SERVER_URL + '/user');
@@ -52,12 +53,16 @@ const Register = () => {
     })
     .then(response => response.json())
     .then(data => {
-      navigate("/dashboard");
+      
+      setNewUser(data[0].user_id);
+      navigate("/dashboard/user/" + data[0].user_id);
       console.log('Server response:', data);
+      
     })
     .catch((error) => {
       console.error('Error:', error);
     });
+    
   };
 
   return (
@@ -83,7 +88,7 @@ const Register = () => {
               </div>
               {/* <button className={styles.styledbutton} onClick={handleRegister}>Register</button> */}
               <div>
-                <Button type="submit" handleEvent={handleRegister} text="Register" url="/dashboard"/>
+                <Button type="submit" handleEvent={handleRegister} text="Register" />
               </div>
               
               
