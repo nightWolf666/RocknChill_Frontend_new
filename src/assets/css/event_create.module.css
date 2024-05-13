@@ -67,7 +67,7 @@ span.h2 {
 }
 
 .line {
-    background-image: linear-gradient(to right, #99999936, #3892ff94, #99999936);
+    background-image: linear-gradient(to right, #99999936, #603560, #99999936);
     width: 100%;
     height: 0.1rem;
     border-radius: 0.25rem;

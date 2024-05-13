@@ -36,6 +36,29 @@
     padding: 20px;
 }
 
+.profil{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 50%;
+    padding-top: 50px;
+}
+
+.profilmain {
+    display: flex;
+    justify-content: center;
+    backdrop-filter: var(--backdrop);
+    border-radius: 10px;
+    border: solid 1px var(--border-bg-dark);
+    padding: 10px;
+    background-color: var(--secondary);
+    backdrop-filter: var(--blur);
+    width: 270px;
+    color: var(--primary);
+    padding-left: 40px;
+}
+    
+
 .dasboard_header {
     display: flex;
     flex-direction: column;

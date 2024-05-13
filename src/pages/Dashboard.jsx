@@ -29,6 +29,12 @@ function Dashboard() {
 
   return (
     <>
+      <div className={styles.profil}>
+        <div className={styles.profilmain}>
+        <a href="/profil"><h1 >Test</h1></a>
+        </div>
+      </div>
+
       <div className={styles.dasboard}>
         <div className={styles.dasboard_container}>
           <div className={styles.dasboard_wrapper}>
