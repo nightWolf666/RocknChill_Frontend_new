@@ -148,6 +148,13 @@ span.h2 {
     justify-content: center;
 }
 
+.event_create_styledbuttonInline {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
 .event_create_styledbutton:hover {
     transition: 0.3s all;
     background-color: var(--primary);
