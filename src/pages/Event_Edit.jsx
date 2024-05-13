@@ -144,7 +144,10 @@ useEffect(() => {
                     minDate={startDate}
                   /> */}
                   <div className={styles.line}></div>
-                  <Button type="submit" handleEvent={handleEvent} text="Event ändern" url="/dashboard"/>
+                  <div className={styles.event_create_styledbuttonInline}>
+                    <Button type="submit" handleEvent={handleEvent} text="Event ändern" url="/dashboard"/>
+                    <Button type="submit" text="zurück" url="/dashboard"/>
+                  </div>
                   </div>
                  </div> 
               </form>
