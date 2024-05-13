@@ -11,7 +11,7 @@ function PageLayout() {
     <div className="pagelayout" style={{
       minHeight: "100vh",
       width: "100vw",
-      height: "100%",
+      height: "65vw",
       backgroundImage: `url(${backgroundImage})`,
       backgroundSize: "cover",
       backgroundPosition: "center",

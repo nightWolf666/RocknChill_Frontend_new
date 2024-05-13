@@ -1,43 +1,73 @@
-import React, { useEffect, useState } from "react";
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import { useBackgroundImage } from "../context/BackgroundImageContext.jsx";
+import { useFetch } from "../hooks/useFetch.js";
+import Button from "../ui/Button.jsx";
+import ProfilButton from '../assets/icons/electric.png';
 import Background from '../assets/background/Background_Strand.png';
-import "../pages/Profil.css";
+import styles from "../assets/css/profil.module.css";
+import HomeButton from '../assets/icons/Logo.png';
+import stage from "../assets/elements/Bühne_final.png";
 
-const Profil = () => {
+
+function Profil() {
+
   const { setBackgroundImage } = useBackgroundImage();
-  const [user, setUser] = useState(null);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState([]);
+
+  const [error, backendFetchResult] = useFetch(import.meta.env.VITE_SERVER_URL + "/user");
 
   useEffect(() => {
     setBackgroundImage(Background);
   }, []);
 
   useEffect(() => {
-    fetch(import.meta.env.VITE_SERVER_URL + '/user/2')
-      .then(response => response.json())
-      .then(data => setUser(data))
-      .catch(error => console.error('Error:', error));
-  }, []);
-
-  if (!user) {
-    return <div>Loading...</div>;
-  }
+    if (backendFetchResult?.length > 0) {
+      setUser(backendFetchResult);
+    }
+  }, [backendFetchResult]);
 
   return (
-    <div className="profil-container">
-      <h1>RocknChill</h1>
-      <p>Benutzername: {user.user_name}</p>
-      <p>Email: {user.email}</p>
-      <p>Urlaubstage: {user.urlaubstage}</p>
-      <p>Budget: {user.budget}</p>
-      <p>Avatar Link: {user.avatar_link}</p>
-    </div>
-  );
-};
+    <>
+      <div className={styles.profil}>
+        <div className={styles.profil_container}>
+          <div className={styles.profil_wrapper}>
+            <div className={styles.profil_header}>
+              <img src={HomeButton} alt="" />
+              <div>
+                <img src={stage} alt="" />
+              </div>
+              <div>
+                <h2>Placeholder</h2>
+                <h2>Placeholder</h2>
+                <h2>Placeholder</h2>
+              </div>
+            </div>
+            <div className={styles.profil_addEvent}>
+              <Button url="/profil_edit" text="Editieren" />
+            </div>
+            
+            <div className={styles.profil_main}> {/* TODO */}
+                <div className={styles.line}></div>
+              
+            
+            <div>
+              <div className={styles.profil_UserStatus}>
+                <h1> Placeholder</h1>
+                <p>Placeholder</p>
+              </div>
+              <div className={styles.profil_UserStatus}>
+                <h1>Placeholder</h1>
+                <p>Placeholder</p>
+              </div>
+            </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
 
+    </>
+  )
+}
 export default Profil;
-
-
-
-
