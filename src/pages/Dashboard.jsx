@@ -16,33 +16,33 @@ import EventList from "../ui/EventList.jsx";
 function Dashboard() {
 
   const { setBackgroundImage } = useBackgroundImage();
-  const [user, setUser] = useState([]);
-  const [events, setEvents] = useState ([])
+  // const [user, setUser] = useState([]);
+  // const [events, setEvents] = useState ([])
   const navigate = useNavigate();
   const { id } = useParams();
 
-  const [error, backendFetchResult] = useFetch(import.meta.env.VITE_SERVER_URL + "/event/user/" + id);
+    const [error, events, setEvents] = useFetch(import.meta.env.VITE_SERVER_URL + "/event/user/" + id);
 
-  const [errorres, userFetchResult] = useFetch(import.meta.env.VITE_SERVER_URL + "/user/" + id);  
+  const [errorres, user, setUser] = useFetch(import.meta.env.VITE_SERVER_URL + "/user/" + id);  
 
   
   useEffect(() => {
     setBackgroundImage(Background);
   }, []);
 
-  useEffect(() => {
-    if (backendFetchResult?.length > 0) {
-      console.log('Events:',backendFetchResult);
-      setEvents(backendFetchResult);
-    }
-  }, [backendFetchResult]);
+  
+    // if (backendFetchResult?.length > 0) {
+    //   console.log('Events:',backendFetchResult);
+    //   setEvents(backendFetchResult);
+    // }
+  
 
-  useEffect(() => {
-    if (userFetchResult?.length > 0) {
-      console.log('User:',userFetchResult);
-      setUser(userFetchResult);
-    }
-  }, [userFetchResult]);
+  
+    // if (userFetchResult?.length > 0) {
+    //   console.log('User:',userFetchResult);
+    //   setUser(userFetchResult);
+    // }
+  
 
 
   const handleAddEvent = (e) => {
@@ -105,11 +105,11 @@ function Dashboard() {
             <div>
               <div className={styles.dasboard_UserStatus}>
                 <h1>Übrige Urlaubstage</h1>
-                <p>{userFetchResult[0].urlaubstage}</p>
+                <p>{user[0]?.urlaubstage}</p>
               </div>
               <div className={styles.dasboard_UserStatus}>
                 <h1>Budget</h1>
-                <p>{userFetchResult[0].budget}</p>
+                <p>{user[0]?.budget}</p>
               </div>
             </div>
             

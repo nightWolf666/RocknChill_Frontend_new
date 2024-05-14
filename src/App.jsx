@@ -26,7 +26,7 @@ function App() {
             <>
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
-              <Route path="/dashboard" element={<Dashboard />} />
+              {/* <Route path="/dashboard" element={<Dashboard />} /> */}
               <Route path="/dashboard/user/:id" element={<Dashboard />} />
               <Route path="/event_create/user/:id" element={<Event_Create />} />
               <Route path="/event_detail/:id" element={<Event_Detail />} />
