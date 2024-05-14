@@ -7,10 +7,17 @@ import Background from '../assets/background/Background_Strand.png';
 import Button from "../ui/Button.jsx";
 import styles from "../assets/css/event_create.module.css";
 import stage from "../assets/elements/Bühne_final.png";
+import { DateTime } from 'luxon';
 
 
 
 import DatePicker from "react-datepicker";
+import { registerLocale, setDefaultLocale } from  "react-datepicker";
+import { de } from 'date-fns/locale/de';
+registerLocale('de', de)
+
+setDefaultLocale('de');
+
 import "react-datepicker/dist/react-datepicker.css";
 const Event_Create = () => {
   const { setBackgroundImage } = useBackgroundImage();
@@ -21,6 +28,9 @@ const Event_Create = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [event_genre, setEvent_genre] = useState("");
+  // const [start, setStart] = useState('');
+  // const [ende, setEnde] = useState('');
+
   const navigate = useNavigate();
 
   const { id } = useParams();
@@ -67,7 +77,24 @@ const Event_Create = () => {
       e.preventDefault();
       console.log(user);
       
-      
+    //   time = DateTime.fromISO(new Date());
+    //   let time = startDate.setLocale('de').toFormat('yyyy LLL dd');
+    //   console.log(time);
+    // //   const time = startDate.toISOString();
+    //  let tempTime = time.setLocale('de').toFormat('yyyy LLL dd');
+    //  console.log(tempTime);
+
+    //  useEffect(() => {
+    //   setStartDate(tempTime).toISOString();
+    //   }, []);
+
+      // time = DateTime.fromISO(endDate);
+      // tempTime = time.setLocale('de').toFormat('yyyy LLL dd');
+      // console.log(tempTime);
+      // useEffect(() => {
+      //   setEndDate(tempTime);
+      // }, []);
+
 
       const user_id = user.user_id;
       const eventData = {
@@ -119,6 +146,7 @@ const Event_Create = () => {
                     <input type="text" className={styles.styledinput} placeholder="Genre" value={event_genre} onChange={(e) => setEvent_genre(e.target.value)} />
                     
                   <DatePicker
+                    dateFormat="yyyy/MM/dd"
                     selected={startDate}
                     onChange={(date) => setStartDate(date)}
                     selectsStart
@@ -126,6 +154,7 @@ const Event_Create = () => {
                     endDate={endDate}
                   />
                   <DatePicker
+                    dateFormat="yyyy/MM/dd"
                     selected={endDate}
                     onChange={(date) => setEndDate(date)}
                     selectsEnd
@@ -134,7 +163,7 @@ const Event_Create = () => {
                     minDate={startDate}
                   />
                   <div className={styles.line}></div>
-                  <Button type="submit" handleEvent={handleEvent} text="Event Eintragen" url="/dashboard"/>
+                  <Button type="submit" handleEvent={handleEvent} text="Event Eintragen" />
                   </div>
                  </div> 
               </form>
