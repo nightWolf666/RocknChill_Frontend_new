@@ -115,25 +115,32 @@
     text-shadow: var(--text-shadow-primary);
 }
 
-
-
-
-/* .problems {
-    font-size: 14px;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
+.dasboard_list {
     display: flex;
-    height: 65px;
-    background-color: var(--seondarybt);
-    backdrop-filter: var(--backdrop);
-    border-radius: 5px;
-    border: 1px solid var(--border-gray-dark);
-    color: var(--white);
-    font-family: var(--semibold);
-    transition: border .2s ease-in-out;
-    padding: 15px;
-} */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .dasboard_ul_list_element {
+    display: flex;
+    list-style-type: none;
+    width: 85%;
+  }
+  
+  
+  .dasboard_li_list_element {
+    display: flex;
+    width: 200px;
+  }
+  
+  .dasboard_li_list_element li {
+    width: 200px;
+  }
+  
+  .dasboard_ul_list_btn {
+    display: flex;
+  }
+ 
 
 .line {
     background-image: linear-gradient(to right, #99999936, #603560, #99999936);
