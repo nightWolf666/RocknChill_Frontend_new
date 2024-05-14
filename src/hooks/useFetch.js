@@ -19,5 +19,5 @@ export function useFetch(url) {
     }
   }, [url]);
 
-  return [error, data];
+  return [error, data, setData];
 }

@@ -119,7 +119,7 @@ const Profil_Edit = () => {
       .then(response => response.json())
       .then(data => {
         setUser(data.user);
-        navigate("/dashboard");
+        navigate("/dashboard/user/" + id);
         console.log('Server response:', data);
       }) 
       .catch((error) => {
