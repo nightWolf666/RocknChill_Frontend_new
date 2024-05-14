@@ -1,5 +1,6 @@
 import EventListElement from "./EventListElement.jsx"
 
+
 const EventList = ({events, setEvents}) => {
 
     
@@ -7,7 +8,7 @@ const EventList = ({events, setEvents}) => {
     return (
         <>
             
-            <div className="list">
+            <div className="dasboard_list">
                 <ul className="ul-list-list">
                     {events.map((event) => (
                     <EventListElement 
