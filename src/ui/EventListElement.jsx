@@ -1,5 +1,5 @@
 import { useState} from "react";
-
+import styles from "../assets/css/eventlistelement.module.css";
 
 export default function EventListElement({event_name, event_ort, startDate, endDate, id, setEvents}) {
 
@@ -14,18 +14,18 @@ export default function EventListElement({event_name, event_ort, startDate, endD
 
     return (
         <>
-        {/* <li className="li-list-element" > */}
-            <ul className="ul-list-element">
-                <li className="ul-li-toDo">{event_name}</li>
-                <li>{event_ort}</li>
+        <div className={styles.wrapper}>
+            <ul className={styles.events}>
+            <input type="hidden" value={id}/>
+                <li>{event_name}</li>
                 <li>{startDate}</li>
                 <li>{endDate}</li>
+                <li>{event_ort}</li>
             </ul>
-            <span className="ul-list-btn">
-                <button>Ändern</button>
-                <button onClick={() => removeEvent(id)}>Löschen</button>
-            </span>
-        
+            <div className={styles.buttons}>
+                <button className={styles.editremove} onClick={() => removeEvent(id)}>Löschen</button>
+            </div>
+        </div>
         </>
     )
 };
