@@ -13,8 +13,15 @@ import stage from "../assets/elements/Bühne_final.png";
 const Login = () => {
 
   const { setBackgroundImage } = useBackgroundImage();
-  const [user, setUser] = useState([]);
+  // const [user, setUser] = useState([]);
+  // const [user_name_cmp, setUserName_cmp] = useState("");
+  // const [email_cmp, setEmail_cmp] = useState("");
   const navigate = useNavigate();
+
+  const [errorres, user, setUser] = useFetch(import.meta.env.VITE_SERVER_URL + "/user/50");  
+
+  // const [error_name, user_name_cmp, setUser_name_cmp] = useFetch(import.meta.env.VITE_SERVER_URL + "/user/1" );
+  // const [error_mail, email_cmp, setEmail_cmp] = useFetch(import.meta.env.VITE_SERVER_URL + "/user/ResponseTest7@mail.com");
 
   // const [error, backendFetchResult] = useFetch(import.meta.env.VITE_SERVER_URL + "/user");
 
@@ -32,15 +39,16 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-  fetch(import.meta.env.VITE_SERVER_URL + '/user/2')
-      .then(response => response.json())
-      .then(data => {setUser(data[0]);
-        navigate("/dashboard");}
-      )
-      .catch(error => console.error('Error:', error));
+  // fetch(import.meta.env.VITE_SERVER_URL + '/user/2')
+  //     .then(response => response.json())
+  //     .then(data => {setUser(data[0]);
+        
+  //     )
+  //     .catch(error => console.error('Error:', error));
 
-
-  }
+       navigate("/dashboard/user/" + user[0].user_id);
+  // }
+  };
 
   return (
     <>
@@ -55,11 +63,11 @@ const Login = () => {
             </div>
             <div className={styles.main}>
               <div className={styles.inputs}>
-                <input type="text" placeholder="Benutzername" className={styles.styledinput} />
-                <input type="password" placeholder="Passwort" className={styles.styledinput} />
+                <input type="text" value={user[0]?.user_name} placeholder="Benutzername" className={styles.styledinput} />
+                <input type="password" value={user[0]?.password} placeholder="Passwort" className={styles.styledinput} />
               </div>
               <div>
-              <Button type="submit" handleEvent={handleLogin} text="Login" url="/dashboard"/>
+              <Button type="submit" handleEvent={handleLogin} text="Login" />
               </div>
               <div className={styles.line}></div>
               <div className={styles.bereitsreg}>
