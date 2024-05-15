@@ -71,6 +71,7 @@ function Dashboard() {
                 <h2>Veranstaltung</h2>
                 <h2>Datum</h2>
                 <h2>Ort</h2>
+                <h2>Dauer</h2>
               </div>
             </div>
             <div className={styles.dasboard_addEvent}>

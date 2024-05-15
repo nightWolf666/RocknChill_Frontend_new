@@ -19,6 +19,7 @@ const EventList = ({events, setEvents}) => {
                     event_ort={event.event_ort}
                     startDate={event.event_start}
                     endDate={event.event_ende}
+                    event_dauer={event.event_dauer}
                     setEvents={setEvents}
                     />
                     ))}
