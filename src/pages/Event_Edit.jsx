@@ -71,33 +71,12 @@ useEffect(() => {
         user_id
       };
 
-      updateForm();
+      updateFunction();
     };
 
-    const removeEvent = (e) => {
-      e.preventDefault();
-      fetch(import.meta.env.VITE_SERVER_URL + '/event/' +id, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        
-      })
-      .then(response => response.json())
-      .then(data => {
-        
-        navigate("/dashboard/user/" + data[0].user_id);
-        console.log('Server response:', data[0]);
-        
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-
-     
-    };
+    
       
-    function updateForm(){
+    function updateFunction(){
       fetch(import.meta.env.VITE_SERVER_URL + '/event/' + id, {
         method: "PUT",
         headers: {
@@ -107,13 +86,42 @@ useEffect(() => {
       })
       .then(response => response.json())
       .then(data => {
-        // setUser(data.event);
+        const tempData = data[0].user_id;
+        setUserref(tempData);
         navigate("/dashboard/user/" + data[0].user_id);
         console.log('Server response:', data);
       }) 
       .catch((error) => {
         console.error('Error:', error);
       });
+    }
+
+
+      const removeEvent = (e) => {
+        e.preventDefault();
+        deleteFunction();
+       
+      };
+
+      function deleteFunction(){
+        fetch(import.meta.env.VITE_SERVER_URL + '/event/' +id, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          
+        })
+        .then(response => response.json())
+        .then(data => {
+          const tempData = data[0].user_id;
+          setUserref(tempData);
+          navigate("/dashboard/user/" + data[0].user_id);
+          console.log('Server response:', data);
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+
   }
 
   return (
