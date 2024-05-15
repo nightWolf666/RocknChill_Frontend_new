@@ -48,7 +48,7 @@ const removeEvent = () => {
       console.log('Server response:', data[0]);
       console.log('Frontend response:', elementToRemove);
       
-      navigate("/dashboard/user/" + data[0].user_id);
+      
     })
     .catch((error) => {
       console.error('Error:', error);
