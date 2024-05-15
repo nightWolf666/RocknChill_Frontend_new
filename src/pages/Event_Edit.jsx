@@ -12,6 +12,7 @@ import stage from "../assets/elements/Stage_Event.png";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { UNSAFE_mapRouteProperties } from "react-router";
 const Event_Edit = () => {
   const { setBackgroundImage } = useBackgroundImage();
   const [user, setUser] = useState([]);
@@ -23,6 +24,7 @@ const Event_Edit = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [event_genre, setEvent_genre] = useState("");
+  const [userref, setUserref] = useState(""); 
   const navigate = useNavigate();
   
   const { id } = useParams();
@@ -83,6 +85,7 @@ useEffect(() => {
       })
       .then(response => response.json())
       .then(data => {
+        
         navigate("/dashboard/user/" + data[0].user_id);
         console.log('Server response:', data[0]);
         
