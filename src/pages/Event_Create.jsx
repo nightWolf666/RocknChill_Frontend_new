@@ -28,6 +28,7 @@ const Event_Create = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [event_genre, setEvent_genre] = useState("");
+  const [event_dauer, setEvent_dauer] = useState("");
   // const [start, setStart] = useState('');
   // const [ende, setEnde] = useState('');
 
@@ -94,6 +95,26 @@ const Event_Create = () => {
       // useEffect(() => {
       //   setEndDate(tempTime);
       // }, []);
+      const st = DateTime.fromJSDate(startDate);
+    const et = DateTime.fromJSDate(endDate);
+    const delta = et.diff(st, 'days');
+    console.log(delta.days);
+    const tempDelta = delta.days;
+    console.log(tempDelta);
+    setEvent_dauer(tempDelta);
+        
+    console.log("event_dauer:",event_dauer);
+
+    // const st = DateTime.fromJSDate(startDate);
+    // const et = DateTime.fromJSDate(endDate);
+    // const delta = et.diff(st, 'days');
+    // delta.values
+
+    // setEvent_dauer(delta.values);
+
+// const diffInDays = end.diff(start, 'days');
+// console.log(diffInDays);
+// diffInDays.toObject(); //=> { months: 1 }
 
 
       const user_id = user.user_id;
@@ -104,7 +125,8 @@ const Event_Create = () => {
         event_ende:endDate,
         event_beschreibung_kurz,
         event_genre,
-        user_id
+        user_id,
+        event_dauer
       };
 
       
@@ -146,7 +168,7 @@ const Event_Create = () => {
                     <input type="text" className={styles.styledinput} placeholder="Genre" value={event_genre} onChange={(e) => setEvent_genre(e.target.value)} />
                     
                   <DatePicker
-                    dateFormat="yyyy/MM/dd"
+                    // dateFormat="yyyy/MM/dd"
                     selected={startDate}
                     onChange={(date) => setStartDate(date)}
                     selectsStart
@@ -154,7 +176,7 @@ const Event_Create = () => {
                     endDate={endDate}
                   />
                   <DatePicker
-                    dateFormat="yyyy/MM/dd"
+                    // dateFormat="yyyy/MM/dd"
                     selected={endDate}
                     onChange={(date) => setEndDate(date)}
                     selectsEnd

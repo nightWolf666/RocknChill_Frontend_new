@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "../assets/css/eventlistelement.module.css";
 import { DateTime } from 'luxon';
 
-export default function EventListElement({event_name, event_ort, startDate, endDate, id, setEvents}) {
+export default function EventListElement({event_name, event_ort, startDate, endDate, event_dauer, id, setEvents}) {
 
 const [start, setStart] = useState(startDate);
 const [ende, setEnde] = useState(endDate);
@@ -54,6 +54,7 @@ const navigate = useNavigate();
                 <li>{start}</li>
                 <li>{ende}</li>
                 <li>{event_ort}</li>
+                <li>{event_dauer}</li>
             </ul>
             <div className={styles.buttons}>
                 <button className={styles.editremove} onClick={() => removeEvent(id)}>Löschen</button>
