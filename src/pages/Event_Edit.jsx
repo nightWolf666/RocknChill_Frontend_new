@@ -86,9 +86,9 @@ useEffect(() => {
       })
       .then(response => response.json())
       .then(data => {
-        const tempData = data[0].user_id;
-        setUserref(tempData);
-        navigate("/dashboard/user/" + data[0].user_id);
+        // const tempData = data[0].user_id;
+        // setUserref(tempData);
+        navigate("/dashboard/user/" + currentEvent.user_id);
         console.log('Server response:', data);
       }) 
       .catch((error) => {
@@ -113,9 +113,9 @@ useEffect(() => {
         })
         .then(response => response.json())
         .then(data => {
-          const tempData = data[0].user_id;
-          setUserref(tempData);
-          navigate("/dashboard/user/" + data[0].user_id);
+          // const tempData = data[0].user_id;
+          // setUserref(tempData);
+          navigate("/dashboard/user/" + currentEvent.user_id);
           console.log('Server response:', data);
         })
         .catch((error) => {
