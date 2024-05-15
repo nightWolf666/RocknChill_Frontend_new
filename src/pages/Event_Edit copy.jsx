@@ -49,7 +49,25 @@ useEffect(() => {
     setBackgroundImage(Background);
   }, []);
 
-  
+  // useEffect(() => {
+  //   if (backendFetchResult?.length > 0) {
+  //     setUser(backendFetchResult);
+      
+  //   }
+  //   console.log("inside", backendFetchResult);
+  // }, [backendFetchResult]);
+  // const [user_var] = user; 
+  // console.log("outside w User",user_var.user_id);
+
+  // const handleEvent = () => {
+  //   const eventData = {
+  //     event_name,
+  //     event_ort,
+  //     event_beschreibung_kurz,
+  //     startDate,
+  //     endDate,
+  //     genre
+  //   };
 
 
 
@@ -70,28 +88,6 @@ useEffect(() => {
       };
 
       updateForm();
-    };
-
-    const removeEvent = (e) => {
-      e.preventDefault();
-      fetch(import.meta.env.VITE_SERVER_URL + '/event/' +id, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        
-      })
-      .then(response => response.json())
-      .then(data => {
-        navigate("/dashboard/user/" + data[0].user_id);
-        console.log('Server response:', data[0]);
-        
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-
-     
     };
       
     function updateForm(){
@@ -132,12 +128,25 @@ useEffect(() => {
                     <input type="text" className={styles.styledinput} placeholder="Info" value={currentEvent.event_beschreibung_kurz} onChange={(e) => setCurrentEvent({ ...currentEvent, event_beschreibung_kurz: e.target.value})} />
                     <input type="text" className={styles.styledinput} placeholder="Genre" value={currentEvent.event_genre} onChange={(e) => setCurrentEvent({ ...currentEvent, event_genre: e.target.value})} />
                     
-                    
-                  
+                    {/* <DatePicker
+                    selected={startDate}
+                    onChange={(date) => setStartDate(date)}
+                    selectsStart
+                    startDate={startDate}
+                    endDate={endDate}
+                  />
+                  <DatePicker
+                    selected={endDate}
+                    onChange={(date) => setEndDate(date)}
+                    selectsEnd
+                    startDate={startDate}
+                    endDate={endDate}
+                    minDate={startDate}
+                  /> */}
                   <div className={styles.line}></div>
                   <div className={styles.event_create_styledbuttonInline}>
-                    <Button type="submit" handleEvent={handleEvent} text="Event ändern" />
-                    <Button type="submit" handleEvent={removeEvent} text="Event löschen" url="/dashboard"/>
+                    <Button type="submit" handleEvent={handleEvent} text="Event ändern" url="/dashboard"/>
+                    <Button type="submit" text="zurück" url="/dashboard"/>
                   </div>
                   </div>
                  </div> 
