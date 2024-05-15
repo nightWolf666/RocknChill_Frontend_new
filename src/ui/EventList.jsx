@@ -2,7 +2,7 @@
 import EventListElement from "./EventListElement.jsx"
 
 
-const EventList = ({events, setEvents}) => {
+const EventList = ({events, setEvents, user_id}) => {
 
     
 
@@ -21,6 +21,7 @@ const EventList = ({events, setEvents}) => {
                     endDate={event.event_ende}
                     event_dauer={event.event_dauer}
                     setEvents={setEvents}
+                    user_id={user_id}
                     />
                     ))}
                 </ul>
