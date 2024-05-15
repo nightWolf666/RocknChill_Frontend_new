@@ -11,9 +11,21 @@ const [ende, setEnde] = useState(endDate);
 const navigate = useNavigate();
 
     const removeEvent = (id) => {
-        setEvents((prev) =>
-          prev.filter((item) => item.id !== id)
-        );
+      fetch(import.meta.env.VITE_SERVER_URL + '/event/' +id, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Server response:', data);
+        
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
       };
 
       let time = DateTime.fromISO(start);
