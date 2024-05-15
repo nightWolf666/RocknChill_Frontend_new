@@ -114,9 +114,7 @@ const removeEvent = () => {
                 <li>{event_ort}</li>
                 <li>{event_dauer}</li>
             </ul>
-            <div className={styles.buttons}>
-                <button className={styles.editremove} onClick={() => removeEvent(id)}>Löschen</button>
-            </div>
+            
         </div>
         </>
     )
