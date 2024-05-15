@@ -23,7 +23,11 @@ function Dashboard() {
 
     const [error, events, setEvents] = useFetch(import.meta.env.VITE_SERVER_URL + "/event/user/" + id);
 
-  const [errorres, user, setUser] = useFetch(import.meta.env.VITE_SERVER_URL + "/user/" + id);  
+  const [errorres, user, setUser] = useFetch(import.meta.env.VITE_SERVER_URL + "/user/" + id);
+  
+  
+
+  
 
   
   useEffect(() => {
@@ -80,7 +84,7 @@ function Dashboard() {
             
             <div className={styles.dasboard_main}>
                 <div className={styles.line}></div>
-                <EventList events={events} setEvents={setEvents}/>
+                <EventList events={events} setEvents={setEvents} user_id={id}/>
 
               {/* <ul>
                 <li>

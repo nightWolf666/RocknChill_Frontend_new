@@ -100,8 +100,8 @@ useEffect(() => {
       })
       .then(response => response.json())
       .then(data => {
-        setUser(data.event);
-        navigate("/dashboard");
+        // setUser(data.event);
+        navigate("/dashboard/user/" + data[0].user_id);
         console.log('Server response:', data);
       }) 
       .catch((error) => {
