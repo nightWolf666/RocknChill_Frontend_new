@@ -7,7 +7,7 @@ import ProfilButton from '../assets/icons/electric.png';
 import Background from '../assets/background/Background_Strand.png';
 import styles from "../assets/css/profil.module.css";
 import HomeButton from '../assets/icons/Logo.png';
-import stage from "../assets/elements/Bühne_final.png";
+import stage from "../assets/elements/Stage_final.png";
 
 
 function Profil() {

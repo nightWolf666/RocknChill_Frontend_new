@@ -6,7 +6,7 @@ import Logo from '../assets/icons/Logo.png';
 import Background from '../assets/background/Background_Strand.png';
 import Button from "../ui/Button.jsx";
 import styles from "../assets/css/register.module.css";
-import stage from "../assets/elements/Bühne_final.png";
+import stage from "../assets/elements/Stage_Register.png";
 
 
 const Register = () => {

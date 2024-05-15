@@ -6,7 +6,7 @@ import Logo from '../assets/icons/Logo.png';
 import Background from '../assets/background/Background_Strand.png';
 import Button from "../ui/Button.jsx";
 import styles from "../assets/css/event_create.module.css";
-import stage from "../assets/elements/Bühne_final.png";
+import stage from "../assets/elements/Stage_Event.png";
 import { DateTime } from 'luxon';
 
 
@@ -101,9 +101,9 @@ const Event_Create = () => {
     console.log(delta.days);
     const tempDelta = delta.days;
     console.log(tempDelta);
-    setEvent_dauer(tempDelta);
+    
         
-    console.log("event_dauer:",event_dauer);
+    console.log("event_dauer:",tempDelta);
 
     // const st = DateTime.fromJSDate(startDate);
     // const et = DateTime.fromJSDate(endDate);
@@ -111,6 +111,10 @@ const Event_Create = () => {
     // delta.values
 
     // setEvent_dauer(delta.values);
+
+    
+
+
 
 // const diffInDays = end.diff(start, 'days');
 // console.log(diffInDays);
@@ -126,7 +130,7 @@ const Event_Create = () => {
         event_beschreibung_kurz,
         event_genre,
         user_id,
-        event_dauer
+        event_dauer:tempDelta
       };
 
       

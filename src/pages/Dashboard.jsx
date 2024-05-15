@@ -4,11 +4,10 @@ import { useNavigate,useParams} from "react-router-dom";
 import { useBackgroundImage } from "../context/BackgroundImageContext.jsx";
 import { useFetch } from "../hooks/useFetch.js";
 import Button from "../ui/Button.jsx";
-import ProfilButton from '../assets/icons/electric.png';
 import Background from '../assets/background/Background_Strand.png';
 import styles from "../assets/css/dashboard.module.css";
 import HomeButton from '../assets/icons/Logo.png';
-import stage from "../assets/elements/Bühne_final.png";
+import stage from "../assets/elements/Stage_Dashboard.png";
 import EventList from "../ui/EventList.jsx";
 
 
@@ -23,7 +22,11 @@ function Dashboard() {
 
     const [error, events, setEvents] = useFetch(import.meta.env.VITE_SERVER_URL + "/event/user/" + id);
 
-  const [errorres, user, setUser] = useFetch(import.meta.env.VITE_SERVER_URL + "/user/" + id);  
+  const [errorres, user, setUser] = useFetch(import.meta.env.VITE_SERVER_URL + "/user/" + id);
+  
+  
+
+
 
   
   useEffect(() => {
@@ -80,7 +83,7 @@ function Dashboard() {
             
             <div className={styles.dasboard_main}>
                 <div className={styles.line}></div>
-                <EventList events={events} setEvents={setEvents}/>
+                <EventList events={events} setEvents={setEvents} user_id={id}/>
 
               {/* <ul>
                 <li>

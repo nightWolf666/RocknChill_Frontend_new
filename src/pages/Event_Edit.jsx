@@ -6,7 +6,7 @@ import Logo from '../assets/icons/Logo.png';
 import Background from '../assets/background/Background_Strand.png';
 import Button from "../ui/Button.jsx";
 import styles from "../assets/css/event_create.module.css";
-import stage from "../assets/elements/Bühne_final.png";
+import stage from "../assets/elements/Stage_Event.png";
 
 
 
@@ -100,8 +100,8 @@ useEffect(() => {
       })
       .then(response => response.json())
       .then(data => {
-        setUser(data.event);
-        navigate("/dashboard");
+        // setUser(data.event);
+        navigate("/dashboard/user/" + data[0].user_id);
         console.log('Server response:', data);
       }) 
       .catch((error) => {
